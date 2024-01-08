@@ -5,9 +5,9 @@ import { loginAction } from '../Redux/AuthReducer/action'
 export const Login = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const state = useSelector((store)=> store.authReducer)
+    const {auth,isLoading} = useSelector((store)=> store.authReducer)
 
-    console.log(state)
+    // console.log(state)
     const dispatch = useDispatch()
     
     const handleClick=(e)=>{
@@ -24,6 +24,7 @@ export const Login = () => {
     <>
         <DIV>
             <h2>Login</h2>
+            <h3>{auth ? "Login Successfull!" : "Need to login first!!"}</h3>
             <form>
                 <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email' />
                 <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='password' />
