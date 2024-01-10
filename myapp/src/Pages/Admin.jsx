@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { addProduct } from '../Redux/ProductReducer/action'
 
 const initState = {
     image:"",
@@ -12,6 +14,7 @@ const initState = {
 
 export const Admin = () => {
     const [product, setProduct] = useState(initState)
+    const dispatch = useDispatch()
 
     const handleChange =(e)=>{
         e.preventDefault()
@@ -24,7 +27,7 @@ export const Admin = () => {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        console.log(product)
+        dispatch(addProduct(product))
         setProduct(initState)
     }
     
