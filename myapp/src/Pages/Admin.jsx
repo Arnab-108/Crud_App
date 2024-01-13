@@ -7,9 +7,9 @@ const initState = {
     image:"",
     title:"",
     price:"",
-    brand:"",
+    color:"",
     discount:"",
-    gender:""
+    category:""
 }
 
 export const Admin = () => {
@@ -39,13 +39,13 @@ export const Admin = () => {
                 <input type="text" name="image" value={product.image} onChange={(e)=>{handleChange(e)}} placeholder='Image' />
                 <input type="text" name="title" value={product.title} onChange={(e)=>{handleChange(e)}} placeholder='Title' />
                 <input type="text" name="price" value={product.price} onChange={(e)=>{handleChange(e)}} placeholder='Price' />
-                <input type="text" name="brand" value={product.brand} onChange={(e)=>{handleChange(e)}} placeholder='Brand' />
+                <input type="text" name="color" value={product.brand} onChange={(e)=>{handleChange(e)}} placeholder='Color' />
                 <input type="text" name="discount" value={product.discount} onChange={(e)=>{handleChange(e)}} placeholder='Discount' />
                 <select name="gender" onChange={(e)=>{handleChange(e)}}>
                     <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="kids">Kids</option>
+                    <option value="Mens">Male</option>
+                    <option value="Womens">Female</option>
+                    <option value="Kids">Kids</option>
                 </select>
                 <button onClick={handleClick} type='submit'>Submit</button>
             </form>
