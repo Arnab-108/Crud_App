@@ -2,21 +2,26 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from "styled-components"
 import { loginAction } from '../Redux/AuthReducer/action'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 export const Login = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const {auth,isLoading} = useSelector((store)=> store.authReducer)
-
+    const location = useLocation()
+    const navigate = useNavigate()
     // console.log(state)
     const dispatch = useDispatch()
-    
+    console.log(location)
     const handleClick=(e)=>{
         e.preventDefault()
         const obj={
             email,
             password
         }
-        dispatch(loginAction(obj))
+        dispatch(loginAction(obj)).then(()=>{
+            alert("Login Successfull!")
+            navigate(location.state, {replace:true})
+        })
         setEmail("")
         setPassword("")
     }

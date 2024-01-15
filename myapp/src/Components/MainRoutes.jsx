@@ -4,6 +4,7 @@ import { Homepage } from '../Pages/Homepage'
 import { Login } from '../Pages/Login'
 import { Admin } from '../Pages/Admin'
 import { PrivateRoute } from './PrivateRoute'
+import { Edit } from '../Pages/Edit'
 
 export const MainRoutes = () => {
   return (
@@ -14,6 +15,11 @@ export const MainRoutes = () => {
             <Route path='/admin' element={
               <PrivateRoute>
                 <Admin />
+              </PrivateRoute>
+            } />
+            <Route path='/edit/:id' element={
+              <PrivateRoute>
+                <Edit />
               </PrivateRoute>
             } />
             <Route path='*' element={<h1>404 Page not found</h1>} />

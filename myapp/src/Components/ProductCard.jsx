@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const ProductCard = ({image,title,price,color,discount,category}) => {
+export const ProductCard = ({image,title,price,color,discount,category,id}) => {
   return (
     <>
         <DIV>
@@ -11,6 +12,9 @@ export const ProductCard = ({image,title,price,color,discount,category}) => {
             <p>Color: {color}</p>
             <p>Discount: {discount}%</p>
             <p>Category: {category}</p>
+            <button>
+              <Link to={`/edit/${id}`}>Edit</Link>
+            </button>
         </DIV>
     </>
   )
