@@ -13,7 +13,9 @@ export const ProductList = () => {
 
     let obj = {
         params:{
-            category: searchParams.getAll('category')
+            category: searchParams.getAll('category'),
+            _sort: searchParams.get('order') && "price",
+            _order: searchParams.get('order')
         }
     }
     useEffect(() => {
