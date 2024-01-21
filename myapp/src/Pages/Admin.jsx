@@ -27,7 +27,9 @@ export const Admin = () => {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        dispatch(addProduct(product))
+        dispatch(addProduct(product)).then(()=>{
+            alert("New Data added!")
+        })
         setProduct(initState)
     }
     
@@ -38,10 +40,10 @@ export const Admin = () => {
             <form>
                 <input type="text" name="image" value={product.image} onChange={(e)=>{handleChange(e)}} placeholder='Image' />
                 <input type="text" name="title" value={product.title} onChange={(e)=>{handleChange(e)}} placeholder='Title' />
-                <input type="text" name="price" value={product.price} onChange={(e)=>{handleChange(e)}} placeholder='Price' />
+                <input type="number" name="price" value={product.price} onChange={(e)=>{handleChange(e)}} placeholder='Price' />
                 <input type="text" name="color" value={product.brand} onChange={(e)=>{handleChange(e)}} placeholder='Color' />
-                <input type="text" name="discount" value={product.discount} onChange={(e)=>{handleChange(e)}} placeholder='Discount' />
-                <select name="gender" onChange={(e)=>{handleChange(e)}}>
+                <input type="number" name="discount" value={product.discount} onChange={(e)=>{handleChange(e)}} placeholder='Discount' />
+                <select name="category" onChange={(e)=>{handleChange(e)}}>
                     <option value="">Select Gender</option>
                     <option value="Mens">Male</option>
                     <option value="Womens">Female</option>
